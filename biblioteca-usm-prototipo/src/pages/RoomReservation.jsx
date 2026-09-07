@@ -1,5 +1,7 @@
 // src/pages/RoomReservation.jsx
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BookOpen, Calendar } from 'lucide-react';
 import { ROOMS_DATA, CAMPUSES } from '../data/rooms';
 
 export default function RoomReservation() {
@@ -10,20 +12,16 @@ export default function RoomReservation() {
   const [activeReservation, setActiveReservation] = useState(null);
   const [confirmedReservation, setConfirmedReservation] = useState(null);
 
-  // Salas de la sede activa
   const campusRooms = ROOMS_DATA.filter(room => room.campus === selectedCampus);
-
-  // Identificar qué categorías realmente existen en este campus
   const availableCategories = Array.from(new Set(campusRooms.map(r => r.category)));
 
-  // Filtrado final
   const filteredRooms = campusRooms.filter(room => {
     return selectedCategory === 'all' || room.category === selectedCategory;
   });
 
   const handleCampusChange = (newCampus) => {
     setSelectedCampus(newCampus);
-    setSelectedCategory('all'); // Resetea categoría al cambiar de sede
+    setSelectedCategory('all');
   };
 
   const handleConfirmReservation = () => {
@@ -32,132 +30,163 @@ export default function RoomReservation() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      {/* Alerta de confirmación */}
-      {confirmedReservation && (
-        <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex justify-between items-center shadow-sm">
-          <div>
-            <p className="font-bold text-sm">¡Reserva confirmada con éxito!</p>
-            <p className="text-xs text-emerald-700">
-              {confirmedReservation.roomName} ({confirmedReservation.campus}, {confirmedReservation.floor}) — {confirmedReservation.date} en bloque {confirmedReservation.time}
-            </p>
-          </div>
-          <button 
-            onClick={() => setConfirmedReservation(null)}
-            className="text-xs font-semibold underline text-emerald-800 hover:text-emerald-950"
-          >
-            Cerrar
-          </button>
-        </div>
-      )}
-
-      {/* Controles / Filtros */}
-      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-6">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-6">
-          <div>
-            <h1 className="text-2xl font-bold text-slate-900">Reserva de Salas de Estudio</h1>
-            <p className="text-sm text-slate-500">Sistema Integrado de Bibliotecas USM</p>
-          </div>
-          <span className="text-xs font-semibold px-3 py-1.5 bg-slate-100 border border-slate-200 text-slate-700 rounded-lg self-start md:self-auto">
-            {filteredRooms.length} salas disponibles
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Campus / Sede</label>
-            <select
-              value={selectedCampus}
-              onChange={(e) => handleCampusChange(e.target.value)}
-              className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
-            >
-              {CAMPUSES.map(c => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Fecha</label>
-            <input
-              type="date"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-              className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Capacidad / Espacio</label>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
-            >
-              <option value="all">Todas las salas ({campusRooms.length})</option>
-              {availableCategories.includes('individual') && (
-                <option value="individual">Individuales (1 pers.)</option>
-              )}
-              {availableCategories.includes('pequena') && (
-                <option value="pequena">Salas Pequeñas (2 a 4 pers.)</option>
-              )}
-              {availableCategories.includes('mediana') && (
-                <option value="mediana">Salas Medianas (4 a 6 pers.)</option>
-              )}
-              {availableCategories.includes('grande') && (
-                <option value="grande">Salas Grandes (+6 pers.)</option>
-              )}
-            </select>
-          </div>
-        </div>
-      </div>
-
-      {/* Lista de Salas */}
-      <div className="space-y-3">
-        {filteredRooms.map(room => (
-          <div key={room.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 hover:border-slate-300 transition-all">
-            <div className="flex justify-between items-center mb-3">
-              <div className="flex items-center gap-2">
-                <h2 className="text-base font-bold text-slate-900">{room.name}</h2>
-                <span className="text-[11px] font-semibold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
-                  {room.categoryLabel}
-                </span>
-              </div>
-              <span className="text-xs text-slate-500 font-medium">{room.floor}</span>
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {/* Barra superior con navegación entre ambos módulos */}
+      <header className="bg-[#1C2A3E] text-white shadow-md">
+        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B5842A]">
+              <Calendar size={18} className="text-[#121B29]" />
             </div>
-
-            <div className="flex flex-wrap gap-2">
-              {room.slots.map((slot, index) => (
-                <button
-                  key={index}
-                  disabled={!slot.available}
-                  onClick={() => setActiveReservation({
-                    roomId: room.id,
-                    roomName: room.name,
-                    campus: room.campus,
-                    floor: room.floor,
-                    time: slot.time,
-                    date: selectedDate
-                  })}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                    slot.available
-                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-600 hover:text-white cursor-pointer active:scale-95'
-                      : 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed line-through'
-                  }`}
-                >
-                  {slot.time}
-                </button>
-              ))}
+            <div className="leading-tight">
+              <p className="font-serif font-bold text-base">Biblioteca USM</p>
+              <p className="text-slate-400 text-[11px]">Reserva de Salas y Cubículos</p>
             </div>
           </div>
-        ))}
 
-        {filteredRooms.length === 0 && (
-          <div className="bg-white p-8 rounded-xl text-center text-slate-500 border border-slate-200">
-            No hay espacios que coincidan con la búsqueda para esta sede.
+          <nav className="flex items-center gap-2">
+            <Link
+              to="/libros"
+              className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
+            >
+              <BookOpen size={16} />
+              <span>Ver Libros</span>
+            </Link>
+            <div className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold bg-white/15 text-amber-300">
+              <Calendar size={16} />
+              <span>Salas</span>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Contenido de Reserva */}
+      <main className="max-w-5xl mx-auto px-4 py-8">
+        {confirmedReservation && (
+          <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex justify-between items-center shadow-sm">
+            <div>
+              <p className="font-bold text-sm">¡Reserva confirmada con éxito!</p>
+              <p className="text-xs text-emerald-700">
+                {confirmedReservation.roomName} ({confirmedReservation.campus}, {confirmedReservation.floor}) — {confirmedReservation.date} en bloque {confirmedReservation.time}
+              </p>
+            </div>
+            <button 
+              onClick={() => setConfirmedReservation(null)}
+              className="text-xs font-semibold underline text-emerald-800 hover:text-emerald-950 cursor-pointer"
+            >
+              Cerrar
+            </button>
           </div>
         )}
-      </div>
+
+        {/* Controles / Filtros */}
+        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-6">
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-6">
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">Reserva de Salas de Estudio</h1>
+              <p className="text-sm text-slate-500">Selecciona sede, fecha y bloque horario</p>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1.5 bg-slate-100 border border-slate-200 text-slate-700 rounded-lg self-start md:self-auto">
+              {filteredRooms.length} salas en esta sede
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Campus / Sede</label>
+              <select
+                value={selectedCampus}
+                onChange={(e) => handleCampusChange(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              >
+                {CAMPUSES.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Fecha</label>
+              <input
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Capacidad / Espacio</label>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              >
+                <option value="all">Todas las capacidades ({campusRooms.length})</option>
+                {availableCategories.includes('individual') && (
+                  <option value="individual">Individuales (1 pers.)</option>
+                )}
+                {availableCategories.includes('pequena') && (
+                  <option value="pequena">Salas Pequeñas (2 a 4 pers.)</option>
+                )}
+                {availableCategories.includes('mediana') && (
+                  <option value="mediana">Salas Medianas (4 a 6 pers.)</option>
+                )}
+                {availableCategories.includes('grande') && (
+                  <option value="grande">Salas Grandes (+6 pers.)</option>
+                )}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Lista de Salas */}
+        <div className="space-y-3">
+          {filteredRooms.map(room => (
+            <div key={room.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 hover:border-slate-300 transition-all">
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-base font-bold text-slate-900">{room.name}</h2>
+                  <span className="text-[11px] font-semibold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                    {room.categoryLabel}
+                  </span>
+                </div>
+                <span className="text-xs text-slate-500 font-medium">{room.floor}</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {room.slots.map((slot, index) => (
+                  <button
+                    key={index}
+                    disabled={!slot.available}
+                    onClick={() => setActiveReservation({
+                      roomId: room.id,
+                      roomName: room.name,
+                      campus: room.campus,
+                      floor: room.floor,
+                      time: slot.time,
+                      date: selectedDate
+                    })}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                      slot.available
+                        ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-600 hover:text-white cursor-pointer active:scale-95'
+                        : 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed line-through'
+                    }`}
+                  >
+                    {slot.time}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {filteredRooms.length === 0 && (
+            <div className="bg-white p-8 rounded-xl text-center text-slate-500 border border-slate-200">
+              No hay espacios que coincidan con la búsqueda para esta sede.
+            </div>
+          )}
+        </div>
+      </main>
 
       {/* Modal de confirmación */}
       {activeReservation && (
@@ -192,13 +221,13 @@ export default function RoomReservation() {
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setActiveReservation(null)}
-                className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
               >
                 Cancelar
               </button>
               <button
                 onClick={handleConfirmReservation}
-                className="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white"
+                className="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
               >
                 Confirmar Reserva
               </button>
