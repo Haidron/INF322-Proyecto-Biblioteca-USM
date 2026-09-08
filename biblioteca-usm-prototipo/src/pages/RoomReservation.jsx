@@ -1,7 +1,7 @@
 // src/pages/RoomReservation.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Calendar } from 'lucide-react';
+import { BookOpen, Calendar, Laptop } from 'lucide-react'; // <-- Nuevo icono importado
 import { ROOMS_DATA, CAMPUSES } from '../data/rooms';
 
 export default function RoomReservation() {
@@ -56,6 +56,15 @@ export default function RoomReservation() {
               <Calendar size={16} />
               <span>Salas</span>
             </div>
+            
+            {/* NUEVO ENLACE DIRECTO A COLECCIONES */}
+            <Link
+              to="/colecciones"
+              className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
+            >
+              <Laptop size={16} />
+              <span>Colecciones</span>
+            </Link>
           </nav>
         </div>
       </header>

@@ -1,0 +1,1489 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: biblioteca-usm-prototipo
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+biblioteca-usm-prototipo/
+  public/
+    vite.svg
+  src/
+    assets/
+      react.svg
+    data/
+      rooms.js
+    pages/
+      Catalog.jsx
+      RoomReservation.jsx
+    App.css
+    App.jsx
+    index.css
+    main.jsx
+  .gitignore
+  eslint.config.js
+  index.html
+  package.json
+  postcss.config.js
+  README.md
+  tailwind.config.js
+  vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="biblioteca-usm-prototipo/public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="biblioteca-usm-prototipo/src/assets/react.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="biblioteca-usm-prototipo/src/data/rooms.js">
+// src/data/rooms.js
+
+const DEFAULT_SLOTS = [
+  "08:15 - 09:25",
+  "09:35 - 10:45",
+  "10:55 - 12:05",
+  "12:15 - 13:25",
+  "14:30 - 15:40",
+  "15:50 - 17:00",
+  "17:10 - 18:20",
+  "18:30 - 19:40"
+];
+
+const generateSlots = (seed) => {
+  return DEFAULT_SLOTS.map((time, idx) => ({
+    time,
+    available: (seed + idx) % 3 !== 0
+  }));
+};
+
+const pad = (n) => (n < 10 ? `0${n}` : `${n}`);
+
+const generatedRooms = [];
+
+// ==========================================
+// 1. CASA CENTRAL
+// Individual (Piso 6, 20) | 2-4 (Piso 4, 2) | 4-6 (Piso 5, 2) | +6 (Piso 4, 2)
+// ==========================================
+for (let i = 1; i <= 20; i++) {
+  generatedRooms.push({
+    id: `cc-ind-${pad(i)}`,
+    name: `Cubículo Individual ${pad(i)}`,
+    category: "individual",
+    categoryLabel: "Individual (1 pers.)",
+    campus: "Casa Central",
+    floor: "Piso 6",
+    capacity: 1,
+    slots: generateSlots(i)
+  });
+}
+for (let i = 1; i <= 2; i++) {
+  generatedRooms.push({
+    id: `cc-g24-${pad(i)}`,
+    name: `Sala de Estudio 40${i}`,
+    category: "pequena",
+    categoryLabel: "2 a 4 personas",
+    campus: "Casa Central",
+    floor: "Piso 4",
+    capacity: 4,
+    slots: generateSlots(i + 20)
+  });
+}
+for (let i = 1; i <= 2; i++) {
+  generatedRooms.push({
+    id: `cc-g46-${pad(i)}`,
+    name: `Sala de Trabajo 50${i}`,
+    category: "mediana",
+    categoryLabel: "4 a 6 personas",
+    campus: "Casa Central",
+    floor: "Piso 5",
+    capacity: 6,
+    slots: generateSlots(i + 22)
+  });
+}
+for (let i = 1; i <= 2; i++) {
+  generatedRooms.push({
+    id: `cc-g6p-${pad(i)}`,
+    name: `Sala Magna Grupal 41${i}`,
+    category: "grande",
+    categoryLabel: "+6 personas",
+    campus: "Casa Central",
+    floor: "Piso 4",
+    capacity: 10,
+    slots: generateSlots(i + 24)
+  });
+}
+
+// ==========================================
+// 2. SEDE VIÑA DEL MAR
+// 3 individuales | 5 de 2-4 pers | 1 de 4-6 pers
+// ==========================================
+for (let i = 1; i <= 3; i++) {
+  generatedRooms.push({
+    id: `vdm-ind-${pad(i)}`,
+    name: `Cubículo Individual V${i}`,
+    category: "individual",
+    categoryLabel: "Individual (1 pers.)",
+    campus: "Sede Viña del Mar",
+    floor: "Piso 1",
+    capacity: 1,
+    slots: generateSlots(i + 30)
+  });
+}
+for (let i = 1; i <= 5; i++) {
+  generatedRooms.push({
+    id: `vdm-g24-${pad(i)}`,
+    name: `Sala de Estudio V10${i}`,
+    category: "pequena",
+    categoryLabel: "2 a 4 personas",
+    campus: "Sede Viña del Mar",
+    floor: "Piso 2",
+    capacity: 4,
+    slots: generateSlots(i + 35)
+  });
+}
+generatedRooms.push({
+  id: `vdm-g46-01`,
+  name: `Sala Colaborativa V201`,
+  category: "mediana",
+  categoryLabel: "4 a 6 personas",
+  campus: "Sede Viña del Mar",
+  floor: "Piso 2",
+  capacity: 6,
+  slots: generateSlots(41)
+});
+
+// ==========================================
+// 3. CAMPUS VITACURA
+// 6 de 4 personas | 4 de 6 personas
+// ==========================================
+for (let i = 1; i <= 6; i++) {
+  generatedRooms.push({
+    id: `vit-g4-${pad(i)}`,
+    name: `Sala de Estudio Vitacura ${pad(i)}`,
+    category: "pequena",
+    categoryLabel: "4 personas",
+    campus: "Campus Vitacura",
+    floor: "Edificio Biblioteca",
+    capacity: 4,
+    slots: generateSlots(i + 50)
+  });
+}
+for (let i = 1; i <= 4; i++) {
+  generatedRooms.push({
+    id: `vit-g6-${pad(i)}`,
+    name: `Sala Grupal Vitacura 20${i}`,
+    category: "mediana",
+    categoryLabel: "6 personas",
+    campus: "Campus Vitacura",
+    floor: "Piso 2",
+    capacity: 6,
+    slots: generateSlots(i + 60)
+  });
+}
+
+// ==========================================
+// 4. CAMPUS SAN JOAQUÍN
+// 6 de 4 personas | 12 de 8 personas
+// ==========================================
+for (let i = 1; i <= 6; i++) {
+  generatedRooms.push({
+    id: `sj-g4-${pad(i)}`,
+    name: `Sala de Estudio SJ ${pad(i)}`,
+    category: "pequena",
+    categoryLabel: "4 personas",
+    campus: "Campus San Joaquín",
+    floor: "Piso 1",
+    capacity: 4,
+    slots: generateSlots(i + 70)
+  });
+}
+for (let i = 1; i <= 12; i++) {
+  generatedRooms.push({
+    id: `sj-g8-${pad(i)}`,
+    name: `Sala Grupal Magna SJ ${pad(i)}`,
+    category: "grande",
+    categoryLabel: "8 personas (+6)",
+    campus: "Campus San Joaquín",
+    floor: "Piso 2",
+    capacity: 8,
+    slots: generateSlots(i + 80)
+  });
+}
+
+// ==========================================
+// 5. SEDE CONCEPCIÓN
+// 3 de 4 personas | 9 de 6 personas
+// ==========================================
+for (let i = 1; i <= 3; i++) {
+  generatedRooms.push({
+    id: `ccp-g4-${pad(i)}`,
+    name: `Sala de Estudio Concepción ${pad(i)}`,
+    category: "pequena",
+    categoryLabel: "4 personas",
+    campus: "Sede Concepción",
+    floor: "Piso 1",
+    capacity: 4,
+    slots: generateSlots(i + 100)
+  });
+}
+for (let i = 1; i <= 9; i++) {
+  generatedRooms.push({
+    id: `ccp-g6-${pad(i)}`,
+    name: `Sala Grupal Concepción 20${i}`,
+    category: "mediana",
+    categoryLabel: "6 personas",
+    campus: "Sede Concepción",
+    floor: "Piso 2",
+    capacity: 6,
+    slots: generateSlots(i + 110)
+  });
+}
+
+export const ROOMS_DATA = generatedRooms;
+
+export const CAMPUSES = [
+  "Casa Central",
+  "Sede Viña del Mar",
+  "Campus Vitacura",
+  "Campus San Joaquín",
+  "Sede Concepción"
+];
+</file>
+
+<file path="biblioteca-usm-prototipo/src/App.css">
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</file>
+
+<file path="biblioteca-usm-prototipo/src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="biblioteca-usm-prototipo/.gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="biblioteca-usm-prototipo/eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+
+export default [
+  { ignores: ['dist'] },
+  {
+    files: ['**/*.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    settings: { react: { version: '18.3' } },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'react/jsx-no-target-blank': 'off',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  },
+]
+</file>
+
+<file path="biblioteca-usm-prototipo/index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="biblioteca-usm-prototipo/package.json">
+{
+  "name": "biblioteca-usm-prototipo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.42.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.5.5",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.10"
+  }
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</file>
+
+<file path="biblioteca-usm-prototipo/tailwind.config.js">
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/vite.config.js">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+</file>
+
+<file path="biblioteca-usm-prototipo/src/pages/RoomReservation.jsx">
+// src/pages/RoomReservation.jsx
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BookOpen, Calendar } from 'lucide-react';
+import { ROOMS_DATA, CAMPUSES } from '../data/rooms';
+
+export default function RoomReservation() {
+  const [selectedCampus, setSelectedCampus] = useState('Casa Central');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedDate, setSelectedDate] = useState('2026-09-07');
+  
+  const [activeReservation, setActiveReservation] = useState(null);
+  const [confirmedReservation, setConfirmedReservation] = useState(null);
+
+  const campusRooms = ROOMS_DATA.filter(room => room.campus === selectedCampus);
+  const availableCategories = Array.from(new Set(campusRooms.map(r => r.category)));
+
+  const filteredRooms = campusRooms.filter(room => {
+    return selectedCategory === 'all' || room.category === selectedCategory;
+  });
+
+  const handleCampusChange = (newCampus) => {
+    setSelectedCampus(newCampus);
+    setSelectedCategory('all');
+  };
+
+  const handleConfirmReservation = () => {
+    setConfirmedReservation(activeReservation);
+    setActiveReservation(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {/* Barra superior con navegación entre ambos módulos */}
+      <header className="bg-[#1C2A3E] text-white shadow-md">
+        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B5842A]">
+              <Calendar size={18} className="text-[#121B29]" />
+            </div>
+            <div className="leading-tight">
+              <p className="font-serif font-bold text-base">Biblioteca USM</p>
+              <p className="text-slate-400 text-[11px]">Reserva de Salas y Cubículos</p>
+            </div>
+          </div>
+
+          <nav className="flex items-center gap-2">
+            <Link
+              to="/libros"
+              className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
+            >
+              <BookOpen size={16} />
+              <span>Ver Libros</span>
+            </Link>
+            <div className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold bg-white/15 text-amber-300">
+              <Calendar size={16} />
+              <span>Salas</span>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Contenido de Reserva */}
+      <main className="max-w-5xl mx-auto px-4 py-8">
+        {confirmedReservation && (
+          <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex justify-between items-center shadow-sm">
+            <div>
+              <p className="font-bold text-sm">¡Reserva confirmada con éxito!</p>
+              <p className="text-xs text-emerald-700">
+                {confirmedReservation.roomName} ({confirmedReservation.campus}, {confirmedReservation.floor}) — {confirmedReservation.date} en bloque {confirmedReservation.time}
+              </p>
+            </div>
+            <button 
+              onClick={() => setConfirmedReservation(null)}
+              className="text-xs font-semibold underline text-emerald-800 hover:text-emerald-950 cursor-pointer"
+            >
+              Cerrar
+            </button>
+          </div>
+        )}
+
+        {/* Controles / Filtros */}
+        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-6">
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 mb-6">
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">Reserva de Salas de Estudio</h1>
+              <p className="text-sm text-slate-500">Selecciona sede, fecha y bloque horario</p>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1.5 bg-slate-100 border border-slate-200 text-slate-700 rounded-lg self-start md:self-auto">
+              {filteredRooms.length} salas en esta sede
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Campus / Sede</label>
+              <select
+                value={selectedCampus}
+                onChange={(e) => handleCampusChange(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              >
+                {CAMPUSES.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Fecha</label>
+              <input
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Capacidad / Espacio</label>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
+              >
+                <option value="all">Todas las capacidades ({campusRooms.length})</option>
+                {availableCategories.includes('individual') && (
+                  <option value="individual">Individuales (1 pers.)</option>
+                )}
+                {availableCategories.includes('pequena') && (
+                  <option value="pequena">Salas Pequeñas (2 a 4 pers.)</option>
+                )}
+                {availableCategories.includes('mediana') && (
+                  <option value="mediana">Salas Medianas (4 a 6 pers.)</option>
+                )}
+                {availableCategories.includes('grande') && (
+                  <option value="grande">Salas Grandes (+6 pers.)</option>
+                )}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Lista de Salas */}
+        <div className="space-y-3">
+          {filteredRooms.map(room => (
+            <div key={room.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 hover:border-slate-300 transition-all">
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-base font-bold text-slate-900">{room.name}</h2>
+                  <span className="text-[11px] font-semibold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                    {room.categoryLabel}
+                  </span>
+                </div>
+                <span className="text-xs text-slate-500 font-medium">{room.floor}</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {room.slots.map((slot, index) => (
+                  <button
+                    key={index}
+                    disabled={!slot.available}
+                    onClick={() => setActiveReservation({
+                      roomId: room.id,
+                      roomName: room.name,
+                      campus: room.campus,
+                      floor: room.floor,
+                      time: slot.time,
+                      date: selectedDate
+                    })}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                      slot.available
+                        ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-600 hover:text-white cursor-pointer active:scale-95'
+                        : 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed line-through'
+                    }`}
+                  >
+                    {slot.time}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {filteredRooms.length === 0 && (
+            <div className="bg-white p-8 rounded-xl text-center text-slate-500 border border-slate-200">
+              No hay espacios que coincidan con la búsqueda para esta sede.
+            </div>
+          )}
+        </div>
+      </main>
+
+      {/* Modal de confirmación */}
+      {activeReservation && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50">
+          <div className="bg-white w-full max-w-md rounded-xl p-6 shadow-xl border border-slate-200">
+            <h3 className="text-lg font-bold text-slate-900 mb-1">Confirmar Reserva</h3>
+            <p className="text-xs text-slate-500 mb-4">Verifica los detalles de tu solicitud:</p>
+
+            <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs space-y-2 mb-6">
+              <div className="flex justify-between">
+                <span className="text-slate-500">Espacio:</span>
+                <span className="font-bold text-slate-800">{activeReservation.roomName}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Sede:</span>
+                <span className="font-medium text-slate-700">{activeReservation.campus}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Ubicación:</span>
+                <span className="font-medium text-slate-700">{activeReservation.floor}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Fecha:</span>
+                <span className="font-medium text-slate-700">{activeReservation.date}</span>
+              </div>
+              <div className="flex justify-between border-t border-slate-200 pt-2">
+                <span className="text-slate-500 font-semibold">Bloque:</span>
+                <span className="font-bold text-emerald-700">{activeReservation.time}</span>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setActiveReservation(null)}
+                className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={handleConfirmReservation}
+                className="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
+              >
+                Confirmar Reserva
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/src/pages/Catalog.jsx">
+// src/pages/Catalog.jsx
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import {
+  Home,
+  Search,
+  X,
+  CheckCircle2,
+  BookOpen,
+  ArrowLeft,
+  Clock,
+  Calendar,
+} from "lucide-react";
+
+/* ---------------------------------------------------------
+   Tokens
+--------------------------------------------------------- */
+const ink = "#20242C";
+const inkSoft = "#5B5F6B";
+const paper = "#F3F1EA";
+const paperRaised = "#FFFFFF";
+const navy = "#1C2A3E";
+const navyDeep = "#121B29";
+const gold = "#B5842A";
+const goldDeep = "#8C6620";
+const leaf = "#2F6F5E";
+const leafDeep = "#1E4B3E";
+const line = "#DEDACC";
+
+const serif = {
+  fontFamily:
+    "'Iowan Old Style','Palatino Linotype','Book Antiqua', Georgia, serif",
+};
+
+/* ---------------------------------------------------------
+   Data — catálogo de muestra
+--------------------------------------------------------- */
+const BOOKS = [
+  {
+    id: 1,
+    title: "Los testamentos",
+    author: "Margaret Atwood",
+    category: "Ficción",
+    format: "Libro electrónico",
+    year: 2019,
+    pages: 520,
+    cover: { from: "#3E5C46", to: "#1D2E22", text: "#F4EFE3" },
+    synopsis:
+      "Quince años después de los hechos de 'El cuento de la criada', tres voces distintas narran, desde dentro y fuera del régimen, el principio de su fin.",
+    content: [
+      "Vista previa de prototipo — el siguiente texto es contenido de muestra, no un fragmento real de la obra.",
+      "La primera voz llega desde los archivos de una casa que ya no existe. La segunda, desde una escuela donde las preguntas se aprenden a media voz. La tercera, desde el otro lado de una frontera que separa dos formas de recordar.",
+      "A medida que los tres relatos avanzan, empiezan a rozarse: un nombre que se repite, una fecha que no cuadra, una carta que debía haberse quemado.",
+    ],
+  },
+  {
+    id: 2,
+    title: "NCh1017:2026 Hormigón: confección en obra y ensayo de probetas",
+    author: "Instituto de la Construcción",
+    category: "Normativa",
+    format: "Documento técnico",
+    year: 2026,
+    pages: 48,
+    cover: { from: "#223047", to: "#0E1826", text: "#EDEFF2" },
+    synopsis:
+      "Norma chilena que fija el procedimiento para preparar, curar y ensayar a compresión probetas cúbicas y cilíndricas de hormigón elaboradas en obra.",
+    content: [
+      "Contenido de muestra generado para este prototipo.",
+      "1. Alcance — Este documento establece las condiciones mínimas de muestreo, moldeo y curado de probetas para el control de calidad del hormigón fabricado en faena.",
+      "2. Procedimiento — Las probetas se extraen de una tanda representativa, se compactan en capas y se identifican antes del curado inicial en obra.",
+    ],
+  },
+  {
+    id: 3,
+    title: "Física I: Mecánica",
+    author: "Marcelo Alonso y Edward J. Finn",
+    category: "Ciencias",
+    format: "Libro electrónico",
+    year: 2020,
+    pages: 436,
+    cover: { from: "#2B4C7E", to: "#14243D", text: "#EEF2F8" },
+    synopsis:
+      "Edición revisada y aumentada del clásico texto universitario sobre cinemática, dinámica y las leyes que describen el movimiento de los cuerpos.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Capítulo 1. Cinemática — Antes de preguntar por qué se mueve un cuerpo, conviene aprender a describir cómo se mueve: posición, velocidad y aceleración son las tres preguntas que ordenan todo lo demás.",
+      "Un tren que frena, una piedra que cae, un planeta que orbita: distintos fenómenos, la misma gramática matemática para describirlos.",
+    ],
+  },
+  {
+    id: 4,
+    title: "Física II: Mecánica",
+    author: "Marcelo Alonso y Edward J. Finn",
+    category: "Ciencias",
+    format: "Libro electrónico",
+    year: 2020,
+    pages: 452,
+    cover: { from: "#1F5E5A", to: "#0E2E2C", text: "#EAF4F2" },
+    synopsis:
+      "Continúa el desarrollo de la mecánica clásica con trabajo, energía, choques y dinámica de sistemas de partículas y cuerpos rígidos.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Capítulo 9. Choques — En el instante del impacto, dos cuerpos intercambian en fracciones de segundo lo que la energía y el momento lineal habían acumulado durante todo su recorrido.",
+      "Distinguir un choque elástico de uno inelástico es, en el fondo, preguntar qué queda igual y qué se transforma.",
+    ],
+  },
+  {
+    id: 5,
+    title: "Derecho de la información personal",
+    author: "Colección Derecho USM",
+    category: "Derecho",
+    format: "Libro electrónico",
+    year: 2022,
+    pages: 214,
+    cover: { from: "#5B2A2A", to: "#2C1414", text: "#F4E9E6" },
+    synopsis:
+      "Estudio del derecho a la protección de datos personales a la luz de la Ley N.º 19.628 y su desarrollo jurisprudencial.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Introducción — Toda persona deja, sin proponérselo, un rastro de datos que la describen. El derecho que los protege es, ante todo, el derecho a decidir qué parte de ese rastro se comparte y con quién.",
+      "El análisis recorre los principios de licitud, finalidad y proporcionalidad que sostienen el tratamiento de datos en Chile.",
+    ],
+  },
+  {
+    id: 6,
+    title: "Diseño de máquinas: un enfoque integrado",
+    author: "Robert L. Norton",
+    category: "Ingeniería",
+    format: "Libro electrónico",
+    year: 2011,
+    pages: 1078,
+    cover: { from: "#B5651D", to: "#6B3A10", text: "#FBF1E5" },
+    synopsis:
+      "Texto de referencia para el diseño de elementos mecánicos, integrando fatiga, esfuerzos y selección de materiales en casos reales.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Capítulo 1. Introducción al diseño — Diseñar una máquina es negociar, pieza por pieza, entre lo que la física permite y lo que el material está dispuesto a soportar sin fallar.",
+      "Cada componente cuenta una historia de cargas: cuánto recibe, cuántas veces, y durante cuánto tiempo.",
+    ],
+  },
+  {
+    id: 7,
+    title: "Roark's Formulas for Stress and Strain",
+    author: "Richard G. Budynas y Ali M. Sadegh",
+    category: "Ingeniería",
+    format: "Libro electrónico",
+    year: 2020,
+    pages: 968,
+    cover: { from: "#1B2A44", to: "#0A1220", text: "#EDEFF4" },
+    synopsis:
+      "Novena edición del manual de referencia para el cálculo de esfuerzos y deformaciones en piezas y estructuras.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Chapter 1. Overview — Every loaded body answers with a shape change, however small. This reference collects the formulas that translate that answer into numbers an engineer can trust.",
+      "The tables are only as useful as the boundary conditions you choose to believe.",
+    ],
+  },
+  {
+    id: 8,
+    title: "Tratado latinoamericano de sociología del trabajo",
+    author: "Enrique de la Garza Toledo (coord.)",
+    category: "Ciencias sociales",
+    format: "Libro electrónico",
+    year: 2018,
+    pages: 612,
+    cover: { from: "#5C4A2E", to: "#2E2416", text: "#F3EEE2" },
+    synopsis:
+      "Panorama coordinado de las transformaciones del trabajo en América Latina, desde la informalidad hasta las nuevas plataformas digitales.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del libro.",
+      "Introducción — Hablar de trabajo en América Latina es hablar de una región donde conviven, en el mismo día y a veces en la misma persona, el contrato formal y la changa de la tarde.",
+      "Los capítulos recorren esa convivencia desde distintos países y distintas escalas.",
+    ],
+  },
+  {
+    id: 9,
+    title: "Mercado Libre: lo mejor aún está por venir",
+    author: "Caso de estudio",
+    category: "Negocios",
+    format: "Caso de estudio",
+    year: 2023,
+    pages: 32,
+    cover: { from: "#8A3B22", to: "#401810", text: "#FBEEE5" },
+    synopsis:
+      "Caso de negocios sobre la expansión regional de una plataforma de comercio electrónico y sus decisiones de logística y fintech.",
+    content: [
+      "Vista previa de prototipo — texto ilustrativo, no un extracto real del caso.",
+      "Contexto — Crecer en trece países a la vez obliga a resolver, casi al mismo tiempo, cómo se paga, cómo se entrega y cómo se compite con el comercio de barrio.",
+      "El caso invita a decidir qué apuesta priorizar para la próxima década.",
+    ],
+  },
+];
+
+const CATEGORIES = [
+  "Todos",
+  ...Array.from(new Set(BOOKS.map((b) => b.category))),
+];
+
+/* ---------------------------------------------------------
+   Piezas visuales
+--------------------------------------------------------- */
+function Cover({ book, className = "" }) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-t-sm ${className}`}
+      style={{
+        background: `linear-gradient(150deg, ${book.cover.from}, ${book.cover.to})`,
+        boxShadow: "inset -6px 0 10px rgba(0,0,0,0.18)",
+        aspectRatio: "2 / 3",
+      }}
+    >
+      <div
+        className="absolute inset-0 flex flex-col justify-between p-3"
+        style={{ color: book.cover.text }}
+      >
+        <span
+          className="self-start rounded-full px-2 py-0.5"
+          style={{ backgroundColor: "rgba(255,255,255,0.16)", fontSize: 11 }}
+        >
+          {book.category}
+        </span>
+        <p className="leading-snug" style={{ ...serif, fontSize: 15 }}>
+          {book.title}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Badge({ children }) {
+  return (
+    <span
+      className="rounded-full border px-2.5 py-1 text-xs"
+      style={{ borderColor: line, color: inkSoft }}
+    >
+      {children}
+    </span>
+  );
+}
+
+/* ---------------------------------------------------------
+   Componente Catalog (Módulo de Libros)
+--------------------------------------------------------- */
+export default function Catalog() {
+  const [view, setView] = useState("catalogo"); // catalogo | biblioteca
+  const [category, setCategory] = useState("Todos");
+  const [query, setQuery] = useState("");
+  const [selectedId, setSelectedId] = useState(null);
+  const [panelOpen, setPanelOpen] = useState(false);
+  const [loans, setLoans] = useState([]); // ids de libros pedidos
+  const [readingId, setReadingId] = useState(null);
+  const [toast, setToast] = useState(null);
+  const toastTimer = useRef(null);
+
+  const selectedBook = BOOKS.find((b) => b.id === selectedId) || null;
+  const readingBook = BOOKS.find((b) => b.id === readingId) || null;
+
+  const visibleBooks = BOOKS.filter((b) => {
+    const matchesCategory = category === "Todos" || b.category === category;
+    const q = query.trim().toLowerCase();
+    const matchesQuery =
+      !q ||
+      b.title.toLowerCase().includes(q) ||
+      b.author.toLowerCase().includes(q);
+    return matchesCategory && matchesQuery;
+  });
+
+  function openBook(id) {
+    setSelectedId(id);
+    requestAnimationFrame(() => setPanelOpen(true));
+  }
+  function closePanel() {
+    setPanelOpen(false);
+    setTimeout(() => setSelectedId(null), 250);
+  }
+
+  function borrow(book) {
+    setLoans((prev) => (prev.includes(book.id) ? prev : [...prev, book.id]));
+    showToast(`Se agregó "${book.title}" a tu biblioteca.`);
+  }
+
+  function showToast(message) {
+    setToast(message);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 3200);
+  }
+
+  useEffect(() => () => clearTimeout(toastTimer.current), []);
+
+  const isBorrowed = (id) => loans.includes(id);
+
+  return (
+    <div
+      className="min-h-screen w-full"
+      style={{
+        backgroundColor: paper,
+        color: ink,
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      }}
+    >
+      {/* ---------- Nav ---------- */}
+      <header style={{ backgroundColor: navy }} className="text-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+          <div className="flex items-center gap-2.5">
+            <div
+              className="flex h-9 w-9 items-center justify-center rounded-full"
+              style={{ backgroundColor: gold }}
+            >
+              <BookOpen size={18} color={navyDeep} />
+            </div>
+            <div className="leading-tight">
+              <p style={{ ...serif, fontSize: 16 }}>Biblioteca USM</p>
+              <p style={{ color: "#B9C2D4", fontSize: 11 }}>
+                Catálogo Digital y Préstamos
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="hidden flex-1 items-center gap-2 rounded-full px-3 py-1.5 sm:flex"
+            style={{ backgroundColor: "rgba(255,255,255,0.1)", maxWidth: 320 }}
+          >
+            <Search size={15} color="#B9C2D4" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Buscar por título o autor"
+              className="w-full bg-transparent text-sm text-white placeholder-slate-300 outline-none"
+            />
+          </div>
+
+          <nav className="flex items-center gap-2">
+            <button
+              onClick={() => setView("catalogo")}
+              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors"
+              style={{
+                backgroundColor:
+                  view === "catalogo" ? "rgba(255,255,255,0.14)" : "transparent",
+              }}
+            >
+              <Home size={16} />
+              <span className="hidden sm:inline">Libros</span>
+            </button>
+            <button
+              onClick={() => setView("biblioteca")}
+              className="relative flex items-center gap-2 rounded-full py-1 pl-1 pr-3 text-sm transition-colors"
+              style={{
+                backgroundColor:
+                  view === "biblioteca" ? "rgba(255,255,255,0.14)" : "transparent",
+              }}
+            >
+              <span
+                className="flex h-7 w-7 items-center justify-center rounded-full text-xs"
+                style={{ backgroundColor: gold, color: navyDeep }}
+              >
+                USM
+              </span>
+              <span className="hidden sm:inline">Mis Préstamos</span>
+              {loans.length > 0 && (
+                <span
+                  className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full text-white"
+                  style={{ backgroundColor: leaf, fontSize: 10 }}
+                >
+                  {loans.length}
+                </span>
+              )}
+            </button>
+
+            {/* ENLACE DIRECTO A TU MÓDULO DE SALAS */}
+            <Link
+              to="/salas"
+              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-amber-300 border border-amber-400/40 hover:bg-white/10 transition-colors"
+            >
+              <Calendar size={15} />
+              <span>Reservar Salas</span>
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* ---------- Hero ---------- */}
+      {view === "catalogo" && (
+        <section className="border-b" style={{ borderColor: line }}>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-8 sm:grid-cols-2 sm:py-10">
+            <div>
+              <h1
+                className="max-w-md leading-tight"
+                style={{ ...serif, color: ink, fontSize: 32 }}
+              >
+                Tu próxima lectura y estudio empieza aquí.
+              </h1>
+              <p className="mt-3 max-w-sm" style={{ color: inkSoft, fontSize: 15 }}>
+                Explora el catálogo de textos de estudio, pide un libro prestado y ábrelo al instante.
+              </p>
+            </div>
+            <div className="flex h-36 items-end justify-center gap-2 sm:h-44">
+              {BOOKS.slice(0, 8).map((b, i) => (
+                <div
+                  key={b.id}
+                  className="rounded-t-sm"
+                  style={{
+                    background: `linear-gradient(180deg, ${b.cover.from}, ${b.cover.to})`,
+                    width: 22 + (i % 3) * 4,
+                    height: 80 + ((i * 37) % 60),
+                    boxShadow: "inset -3px 0 6px rgba(0,0,0,0.18)",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ---------- Catálogo ---------- */}
+      {view === "catalogo" && (
+        <main className="mx-auto max-w-6xl px-5 py-8">
+          <div className="mb-5 flex items-center justify-between">
+            <h2 style={{ ...serif, fontSize: 21 }}>Novedades</h2>
+            <span className="text-sm" style={{ color: inkSoft }}>
+              {visibleBooks.length} resultado
+              {visibleBooks.length === 1 ? "" : "s"}
+            </span>
+          </div>
+
+          <div className="mb-7 flex gap-2 overflow-x-auto pb-1">
+            {CATEGORIES.map((c) => (
+              <button
+                key={c}
+                onClick={() => setCategory(c)}
+                className="shrink-0 rounded-full border px-3.5 py-1.5 text-sm transition-colors cursor-pointer"
+                style={
+                  category === c
+                    ? { backgroundColor: ink, color: paper, borderColor: ink }
+                    : { borderColor: line, color: inkSoft }
+                }
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+          {visibleBooks.length === 0 ? (
+            <div
+              className="rounded-md border py-16 text-center"
+              style={{ borderColor: line, color: inkSoft }}
+            >
+              No encontramos libros para "{query}". Prueba con otro título o autor.
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {visibleBooks.map((book) => (
+                <button
+                  key={book.id}
+                  onClick={() => openBook(book.id)}
+                  className="group text-left cursor-pointer"
+                >
+                  <div className="relative">
+                    <Cover book={book} className="w-full" />
+                    <div
+                      className="absolute inset-0 rounded-t-sm opacity-0 transition-opacity group-hover:opacity-100"
+                      style={{ boxShadow: "0 10px 24px rgba(20,20,10,0.22)" }}
+                    />
+                    {isBorrowed(book.id) && (
+                      <span
+                        className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full"
+                        style={{ backgroundColor: leaf }}
+                      >
+                        <CheckCircle2 size={14} color="#fff" />
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2.5 leading-snug font-medium" style={{ color: ink, fontSize: 14 }}>
+                    {book.title}
+                  </p>
+                  <p style={{ color: inkSoft, fontSize: 13 }}>{book.author}</p>
+                </button>
+              ))}
+            </div>
+          )}
+        </main>
+      )}
+
+      {/* ---------- Mi biblioteca ---------- */}
+      {view === "biblioteca" && (
+        <main className="mx-auto max-w-6xl px-5 py-10">
+          <div className="mb-8 flex items-center gap-3">
+            <span
+              className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold"
+              style={{ backgroundColor: gold, color: navyDeep }}
+            >
+              USM
+            </span>
+            <div>
+              <h2 style={{ ...serif, fontSize: 21 }}>Mis préstamos digitales</h2>
+              <p className="text-sm" style={{ color: inkSoft }}>
+                {loans.length === 0
+                  ? "Todavía no tienes préstamos activos."
+                  : `${loans.length} libro${loans.length === 1 ? "" : "s"} en préstamo.`}
+              </p>
+            </div>
+          </div>
+
+          {loans.length === 0 ? (
+            <div
+              className="flex flex-col items-center gap-3 rounded-md border py-20 text-center"
+              style={{ borderColor: line, color: inkSoft }}
+            >
+              <BookOpen size={28} color={inkSoft} />
+              <p className="max-w-xs text-sm">
+                Explora el catálogo y pide tu primer libro prestado para verlo aquí.
+              </p>
+              <button
+                onClick={() => setView("catalogo")}
+                className="mt-1 rounded-full px-4 py-1.5 text-sm text-white cursor-pointer"
+                style={{ backgroundColor: ink }}
+              >
+                Ir al catálogo
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {loans
+                .map((id) => BOOKS.find((b) => b.id === id))
+                .map((book) => (
+                  <div key={book.id}>
+                    <button onClick={() => openBook(book.id)} className="block w-full text-left cursor-pointer">
+                      <Cover book={book} className="w-full" />
+                    </button>
+                    <p className="mt-2.5 leading-snug font-medium" style={{ fontSize: 14 }}>
+                      {book.title}
+                    </p>
+                    <p style={{ color: inkSoft, fontSize: 13 }}>{book.author}</p>
+                    <button
+                      onClick={() => setReadingId(book.id)}
+                      className="mt-2 w-full rounded-full py-1.5 text-white cursor-pointer"
+                      style={{ backgroundColor: leaf, fontSize: 13 }}
+                    >
+                      Leer ahora
+                    </button>
+                  </div>
+                ))}
+            </div>
+          )}
+        </main>
+      )}
+
+      {/* ---------- Panel de detalle ---------- */}
+      {selectedBook && (
+        <div className="fixed inset-0 z-40 flex justify-end">
+          <div
+            onClick={closePanel}
+            className="absolute inset-0 transition-opacity cursor-pointer"
+            style={{
+              backgroundColor: "rgba(15,18,24,0.45)",
+              opacity: panelOpen ? 1 : 0,
+            }}
+          />
+          <div
+            className="relative flex h-full w-full max-w-md flex-col overflow-y-auto shadow-2xl transition-transform duration-300"
+            style={{
+              backgroundColor: paperRaised,
+              transform: panelOpen ? "translateX(0)" : "translateX(100%)",
+            }}
+          >
+            <div className="flex items-center justify-between px-5 py-4">
+              <span className="text-sm font-medium" style={{ color: inkSoft }}>
+                Detalle del libro
+              </span>
+              <button onClick={closePanel} aria-label="Cerrar" className="cursor-pointer">
+                <X size={18} color={inkSoft} />
+              </button>
+            </div>
+
+            <div className="px-5">
+              <Cover book={selectedBook} className="h-64 w-44" />
+            </div>
+
+            <div className="px-5 py-5">
+              <h3 className="leading-tight" style={{ ...serif, fontSize: 22 }}>
+                {selectedBook.title}
+              </h3>
+              <p className="mt-1 text-sm" style={{ color: inkSoft }}>
+                {selectedBook.author}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Badge>{selectedBook.format}</Badge>
+                <Badge>{selectedBook.year}</Badge>
+                <Badge>{selectedBook.pages} páginas</Badge>
+              </div>
+
+              <p className="mt-5 leading-relaxed" style={{ color: "#3A3E47", fontSize: 14.5 }}>
+                {selectedBook.synopsis}
+              </p>
+
+              <div className="mt-7 flex flex-col gap-2.5">
+                {isBorrowed(selectedBook.id) ? (
+                  <>
+                    <div
+                      className="flex items-center gap-2 rounded-md px-3.5 py-2.5 text-sm"
+                      style={{ backgroundColor: "#EAF2EF", color: leafDeep }}
+                    >
+                      <CheckCircle2 size={16} />
+                      Ya está en tu biblioteca
+                    </div>
+                    <button
+                      onClick={() => {
+                        setReadingId(selectedBook.id);
+                        closePanel();
+                      }}
+                      className="rounded-full py-2.5 text-sm text-white cursor-pointer"
+                      style={{ backgroundColor: leaf }}
+                    >
+                      Leer ahora
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => borrow(selectedBook)}
+                    className="rounded-full py-2.5 text-sm text-white transition-colors cursor-pointer"
+                    style={{ backgroundColor: gold }}
+                    onMouseDown={(e) => (e.currentTarget.style.backgroundColor = goldDeep)}
+                    onMouseUp={(e) => (e.currentTarget.style.backgroundColor = gold)}
+                  >
+                    Pedir prestado
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ---------- Lector ---------- */}
+      {readingBook && (
+        <div className="fixed inset-0 z-50 overflow-y-auto" style={{ backgroundColor: paper }}>
+          <div className="mx-auto flex max-w-2xl items-center justify-between px-5 py-5">
+            <button
+              onClick={() => setReadingId(null)}
+              className="flex items-center gap-1.5 text-sm cursor-pointer"
+              style={{ color: inkSoft }}
+            >
+              <ArrowLeft size={16} />
+              Volver a mi biblioteca
+            </button>
+            <button onClick={() => setReadingId(null)} aria-label="Cerrar lectura" className="cursor-pointer">
+              <X size={18} color={inkSoft} />
+            </button>
+          </div>
+
+          <div className="mx-auto max-w-2xl px-6 pb-24">
+            <p className="flex items-center gap-1.5 text-xs" style={{ color: inkSoft }}>
+              <Clock size={13} />
+              {readingBook.pages} páginas · {readingBook.format}
+            </p>
+            <h1 className="mt-2 leading-tight" style={{ ...serif, fontSize: 30 }}>
+              {readingBook.title}
+            </h1>
+            <p className="mt-1" style={{ color: inkSoft, fontSize: 15 }}>
+              {readingBook.author}
+            </p>
+
+            <div className="mt-8 space-y-5" style={{ fontSize: 16, lineHeight: 1.8 }}>
+              {readingBook.content.map((p, i) =>
+                i === 0 ? (
+                  <p key={i} className="italic" style={{ color: inkSoft, fontSize: 13 }}>
+                    {p}
+                  </p>
+                ) : (
+                  <p key={i} style={{ ...serif, color: "#2B2E36" }}>
+                    {p}
+                  </p>
+                )
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ---------- Toast ---------- */}
+      {toast && (
+        <div
+          className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2.5 text-sm text-white shadow-lg"
+          style={{ backgroundColor: ink }}
+        >
+          <CheckCircle2 size={16} color={gold} />
+          {toast}
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="biblioteca-usm-prototipo/src/App.jsx">
+// src/App.jsx
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Catalog from './pages/Catalog';
+import RoomReservation from './pages/RoomReservation';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Redirigir la raíz al catálogo de libros */}
+        <Route path="/" element={<Navigate to="/libros" replace />} />
+
+        {/* Pantalla 1: Módulo de libros de tu compañero */}
+        <Route path="/libros" element={<Catalog />} />
+
+        {/* Pantalla 2: Tu módulo de reserva de salas */}
+        <Route path="/salas" element={<RoomReservation />} />
+
+        {/* Ruta 404 de respaldo */}
+        <Route path="*" element={<Navigate to="/libros" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+</file>
+
+</files>

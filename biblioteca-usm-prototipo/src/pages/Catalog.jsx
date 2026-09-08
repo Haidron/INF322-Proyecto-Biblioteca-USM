@@ -10,27 +10,8 @@ import {
   ArrowLeft,
   Clock,
   Calendar,
+  Laptop,
 } from "lucide-react";
-
-/* ---------------------------------------------------------
-   Tokens
---------------------------------------------------------- */
-const ink = "#20242C";
-const inkSoft = "#5B5F6B";
-const paper = "#F3F1EA";
-const paperRaised = "#FFFFFF";
-const navy = "#1C2A3E";
-const navyDeep = "#121B29";
-const gold = "#B5842A";
-const goldDeep = "#8C6620";
-const leaf = "#2F6F5E";
-const leafDeep = "#1E4B3E";
-const line = "#DEDACC";
-
-const serif = {
-  fontFamily:
-    "'Iowan Old Style','Palatino Linotype','Book Antiqua', Georgia, serif",
-};
 
 /* ---------------------------------------------------------
    Data — catálogo de muestra
@@ -202,10 +183,9 @@ const CATEGORIES = [
 function Cover({ book, className = "" }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-t-sm ${className}`}
+      className={`relative overflow-hidden rounded-t-sm shadow-sm border border-black/5 ${className}`}
       style={{
         background: `linear-gradient(150deg, ${book.cover.from}, ${book.cover.to})`,
-        boxShadow: "inset -6px 0 10px rgba(0,0,0,0.18)",
         aspectRatio: "2 / 3",
       }}
     >
@@ -214,12 +194,12 @@ function Cover({ book, className = "" }) {
         style={{ color: book.cover.text }}
       >
         <span
-          className="self-start rounded-full px-2 py-0.5"
-          style={{ backgroundColor: "rgba(255,255,255,0.16)", fontSize: 11 }}
+          className="self-start rounded-full px-2 py-0.5 bg-white/10 font-medium"
+          style={{ fontSize: 11 }}
         >
           {book.category}
         </span>
-        <p className="leading-snug" style={{ ...serif, fontSize: 15 }}>
+        <p className="leading-snug font-serif" style={{ fontSize: 15 }}>
           {book.title}
         </p>
       </div>
@@ -229,10 +209,7 @@ function Cover({ book, className = "" }) {
 
 function Badge({ children }) {
   return (
-    <span
-      className="rounded-full border px-2.5 py-1 text-xs"
-      style={{ borderColor: line, color: inkSoft }}
-    >
+    <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-500 font-medium">
       {children}
     </span>
   );
@@ -247,7 +224,7 @@ export default function Catalog() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
-  const [loans, setLoans] = useState([]); // ids de libros pedidos
+  const [loans, setLoans] = useState([]); 
   const [readingId, setReadingId] = useState(null);
   const [toast, setToast] = useState(null);
   const toastTimer = useRef(null);
@@ -269,6 +246,7 @@ export default function Catalog() {
     setSelectedId(id);
     requestAnimationFrame(() => setPanelOpen(true));
   }
+  
   function closePanel() {
     setPanelOpen(false);
     setTimeout(() => setSelectedId(null), 250);
@@ -290,38 +268,23 @@ export default function Catalog() {
   const isBorrowed = (id) => loans.includes(id);
 
   return (
-    <div
-      className="min-h-screen w-full"
-      style={{
-        backgroundColor: paper,
-        color: ink,
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-      }}
-    >
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      
       {/* ---------- Nav ---------- */}
-      <header style={{ backgroundColor: navy }} className="text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+      <header className="bg-[#1C2A3E] text-white shadow-md">
+        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-full"
-              style={{ backgroundColor: gold }}
-            >
-              <BookOpen size={18} color={navyDeep} />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B5842A]">
+              <BookOpen size={18} className="text-[#121B29]" />
             </div>
             <div className="leading-tight">
-              <p style={{ ...serif, fontSize: 16 }}>Biblioteca USM</p>
-              <p style={{ color: "#B9C2D4", fontSize: 11 }}>
-                Catálogo Digital y Préstamos
-              </p>
+              <p className="font-serif font-bold text-base">Biblioteca USM</p>
+              <p className="text-slate-400 text-[11px]">Catálogo Digital y Préstamos</p>
             </div>
           </div>
 
-          <div
-            className="hidden flex-1 items-center gap-2 rounded-full px-3 py-1.5 sm:flex"
-            style={{ backgroundColor: "rgba(255,255,255,0.1)", maxWidth: 320 }}
-          >
-            <Search size={15} color="#B9C2D4" />
+          <div className="hidden flex-1 items-center gap-2 rounded-full px-3 py-1.5 bg-white/10 max-w-[320px] sm:flex">
+            <Search size={15} className="text-slate-300" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -333,47 +296,48 @@ export default function Catalog() {
           <nav className="flex items-center gap-2">
             <button
               onClick={() => setView("catalogo")}
-              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition-colors"
-              style={{
-                backgroundColor:
-                  view === "catalogo" ? "rgba(255,255,255,0.14)" : "transparent",
-              }}
+              className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm transition-colors cursor-pointer ${
+                view === "catalogo" 
+                  ? "font-semibold bg-white/15 text-amber-300" 
+                  : "text-slate-200 hover:bg-white/10"
+              }`}
             >
               <Home size={16} />
               <span className="hidden sm:inline">Libros</span>
             </button>
             <button
               onClick={() => setView("biblioteca")}
-              className="relative flex items-center gap-2 rounded-full py-1 pl-1 pr-3 text-sm transition-colors"
-              style={{
-                backgroundColor:
-                  view === "biblioteca" ? "rgba(255,255,255,0.14)" : "transparent",
-              }}
+              className={`relative flex items-center gap-2 rounded-full py-1.5 pl-2 pr-3.5 text-sm transition-colors cursor-pointer ${
+                view === "biblioteca" 
+                  ? "font-semibold bg-white/15 text-amber-300" 
+                  : "text-slate-200 hover:bg-white/10"
+              }`}
             >
-              <span
-                className="flex h-7 w-7 items-center justify-center rounded-full text-xs"
-                style={{ backgroundColor: gold, color: navyDeep }}
-              >
+              <span className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold bg-[#B5842A] text-[#121B29]">
                 USM
               </span>
               <span className="hidden sm:inline">Mis Préstamos</span>
               {loans.length > 0 && (
-                <span
-                  className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full text-white"
-                  style={{ backgroundColor: leaf, fontSize: 10 }}
-                >
+                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full text-white bg-emerald-600 text-[10px] font-bold shadow-sm">
                   {loans.length}
                 </span>
               )}
             </button>
 
-            {/* ENLACE DIRECTO A TU MÓDULO DE SALAS */}
             <Link
               to="/salas"
-              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-amber-300 border border-amber-400/40 hover:bg-white/10 transition-colors"
+              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
             >
               <Calendar size={15} />
-              <span>Reservar Salas</span>
+              <span className="hidden lg:inline">Salas</span>
+            </Link>
+
+            <Link
+              to="/colecciones"
+              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
+            >
+              <Laptop size={15} />
+              <span className="hidden lg:inline">Colecciones</span>
             </Link>
           </nav>
         </div>
@@ -381,16 +345,13 @@ export default function Catalog() {
 
       {/* ---------- Hero ---------- */}
       {view === "catalogo" && (
-        <section className="border-b" style={{ borderColor: line }}>
+        <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-8 sm:grid-cols-2 sm:py-10">
             <div>
-              <h1
-                className="max-w-md leading-tight"
-                style={{ ...serif, color: ink, fontSize: 32 }}
-              >
+              <h1 className="max-w-md leading-tight font-serif text-3xl text-slate-900 font-bold">
                 Tu próxima lectura y estudio empieza aquí.
               </h1>
-              <p className="mt-3 max-w-sm" style={{ color: inkSoft, fontSize: 15 }}>
+              <p className="mt-3 max-w-sm text-slate-500 text-[15px]">
                 Explora el catálogo de textos de estudio, pide un libro prestado y ábrelo al instante.
               </p>
             </div>
@@ -398,12 +359,11 @@ export default function Catalog() {
               {BOOKS.slice(0, 8).map((b, i) => (
                 <div
                   key={b.id}
-                  className="rounded-t-sm"
+                  className="rounded-t-sm shadow-sm"
                   style={{
                     background: `linear-gradient(180deg, ${b.cover.from}, ${b.cover.to})`,
                     width: 22 + (i % 3) * 4,
                     height: 80 + ((i * 37) % 60),
-                    boxShadow: "inset -3px 0 6px rgba(0,0,0,0.18)",
                   }}
                 />
               ))}
@@ -416,24 +376,22 @@ export default function Catalog() {
       {view === "catalogo" && (
         <main className="mx-auto max-w-6xl px-5 py-8">
           <div className="mb-5 flex items-center justify-between">
-            <h2 style={{ ...serif, fontSize: 21 }}>Novedades</h2>
-            <span className="text-sm" style={{ color: inkSoft }}>
-              {visibleBooks.length} resultado
-              {visibleBooks.length === 1 ? "" : "s"}
+            <h2 className="font-serif text-[21px] font-bold text-slate-800">Novedades</h2>
+            <span className="text-sm text-slate-500 font-medium">
+              {visibleBooks.length} resultado{visibleBooks.length !== 1 && "s"}
             </span>
           </div>
 
-          <div className="mb-7 flex gap-2 overflow-x-auto pb-1">
+          <div className="mb-8 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {CATEGORIES.map((c) => (
               <button
                 key={c}
                 onClick={() => setCategory(c)}
-                className="shrink-0 rounded-full border px-3.5 py-1.5 text-sm transition-colors cursor-pointer"
-                style={
+                className={`shrink-0 rounded-full border px-4 py-1.5 text-sm transition-colors cursor-pointer font-medium ${
                   category === c
-                    ? { backgroundColor: ink, color: paper, borderColor: ink }
-                    : { borderColor: line, color: inkSoft }
-                }
+                    ? "bg-slate-800 text-white border-slate-800"
+                    : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                }`}
               >
                 {c}
               </button>
@@ -441,39 +399,29 @@ export default function Catalog() {
           </div>
 
           {visibleBooks.length === 0 ? (
-            <div
-              className="rounded-md border py-16 text-center"
-              style={{ borderColor: line, color: inkSoft }}
-            >
+            <div className="rounded-xl bg-white border border-slate-200 py-16 text-center text-slate-500 shadow-sm">
               No encontramos libros para "{query}". Prueba con otro título o autor.
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {visibleBooks.map((book) => (
                 <button
                   key={book.id}
                   onClick={() => openBook(book.id)}
-                  className="group text-left cursor-pointer"
+                  className="group text-left cursor-pointer transition-transform hover:-translate-y-1"
                 >
                   <div className="relative">
                     <Cover book={book} className="w-full" />
-                    <div
-                      className="absolute inset-0 rounded-t-sm opacity-0 transition-opacity group-hover:opacity-100"
-                      style={{ boxShadow: "0 10px 24px rgba(20,20,10,0.22)" }}
-                    />
                     {isBorrowed(book.id) && (
-                      <span
-                        className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full"
-                        style={{ backgroundColor: leaf }}
-                      >
-                        <CheckCircle2 size={14} color="#fff" />
+                      <span className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
+                        <CheckCircle2 size={14} className="text-white" />
                       </span>
                     )}
                   </div>
-                  <p className="mt-2.5 leading-snug font-medium" style={{ color: ink, fontSize: 14 }}>
+                  <p className="mt-3 leading-snug font-bold text-slate-900 text-[14px]">
                     {book.title}
                   </p>
-                  <p style={{ color: inkSoft, fontSize: 13 }}>{book.author}</p>
+                  <p className="text-slate-500 text-[13px] mt-0.5">{book.author}</p>
                 </button>
               ))}
             </div>
@@ -485,15 +433,12 @@ export default function Catalog() {
       {view === "biblioteca" && (
         <main className="mx-auto max-w-6xl px-5 py-10">
           <div className="mb-8 flex items-center gap-3">
-            <span
-              className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold"
-              style={{ backgroundColor: gold, color: navyDeep }}
-            >
+            <span className="flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold bg-[#B5842A] text-[#121B29] shadow-sm">
               USM
             </span>
             <div>
-              <h2 style={{ ...serif, fontSize: 21 }}>Mis préstamos digitales</h2>
-              <p className="text-sm" style={{ color: inkSoft }}>
+              <h2 className="font-serif text-[21px] font-bold text-slate-800">Mis préstamos digitales</h2>
+              <p className="text-sm text-slate-500">
                 {loans.length === 0
                   ? "Todavía no tienes préstamos activos."
                   : `${loans.length} libro${loans.length === 1 ? "" : "s"} en préstamo.`}
@@ -502,39 +447,34 @@ export default function Catalog() {
           </div>
 
           {loans.length === 0 ? (
-            <div
-              className="flex flex-col items-center gap-3 rounded-md border py-20 text-center"
-              style={{ borderColor: line, color: inkSoft }}
-            >
-              <BookOpen size={28} color={inkSoft} />
+            <div className="flex flex-col items-center gap-3 rounded-xl bg-white border border-slate-200 py-20 text-center text-slate-500 shadow-sm">
+              <BookOpen size={32} className="text-slate-300 mb-2" />
               <p className="max-w-xs text-sm">
                 Explora el catálogo y pide tu primer libro prestado para verlo aquí.
               </p>
               <button
                 onClick={() => setView("catalogo")}
-                className="mt-1 rounded-full px-4 py-1.5 text-sm text-white cursor-pointer"
-                style={{ backgroundColor: ink }}
+                className="mt-2 rounded-full px-5 py-2 text-sm font-medium text-white bg-slate-800 hover:bg-slate-700 transition-colors cursor-pointer"
               >
                 Ir al catálogo
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {loans
                 .map((id) => BOOKS.find((b) => b.id === id))
                 .map((book) => (
-                  <div key={book.id}>
-                    <button onClick={() => openBook(book.id)} className="block w-full text-left cursor-pointer">
+                  <div key={book.id} className="flex flex-col h-full">
+                    <button onClick={() => openBook(book.id)} className="block w-full text-left cursor-pointer transition-transform hover:-translate-y-1">
                       <Cover book={book} className="w-full" />
                     </button>
-                    <p className="mt-2.5 leading-snug font-medium" style={{ fontSize: 14 }}>
+                    <p className="mt-3 leading-snug font-bold text-slate-900 text-[14px]">
                       {book.title}
                     </p>
-                    <p style={{ color: inkSoft, fontSize: 13 }}>{book.author}</p>
+                    <p className="text-slate-500 text-[13px] mt-0.5 mb-3">{book.author}</p>
                     <button
                       onClick={() => setReadingId(book.id)}
-                      className="mt-2 w-full rounded-full py-1.5 text-white cursor-pointer"
-                      style={{ backgroundColor: leaf, fontSize: 13 }}
+                      className="mt-auto w-full rounded-full py-2 text-white font-medium text-[13px] bg-emerald-600 hover:bg-emerald-700 transition-colors cursor-pointer"
                     >
                       Leer ahora
                     </button>
@@ -550,58 +490,49 @@ export default function Catalog() {
         <div className="fixed inset-0 z-40 flex justify-end">
           <div
             onClick={closePanel}
-            className="absolute inset-0 transition-opacity cursor-pointer"
-            style={{
-              backgroundColor: "rgba(15,18,24,0.45)",
-              opacity: panelOpen ? 1 : 0,
-            }}
+            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity cursor-pointer"
+            style={{ opacity: panelOpen ? 1 : 0 }}
           />
           <div
-            className="relative flex h-full w-full max-w-md flex-col overflow-y-auto shadow-2xl transition-transform duration-300"
-            style={{
-              backgroundColor: paperRaised,
-              transform: panelOpen ? "translateX(0)" : "translateX(100%)",
-            }}
+            className="relative flex h-full w-full max-w-md flex-col overflow-y-auto bg-white shadow-2xl transition-transform duration-300"
+            style={{ transform: panelOpen ? "translateX(0)" : "translateX(100%)" }}
           >
-            <div className="flex items-center justify-between px-5 py-4">
-              <span className="text-sm font-medium" style={{ color: inkSoft }}>
+            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+              <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">
                 Detalle del libro
               </span>
-              <button onClick={closePanel} aria-label="Cerrar" className="cursor-pointer">
-                <X size={18} color={inkSoft} />
+              <button onClick={closePanel} aria-label="Cerrar" className="cursor-pointer p-1 hover:bg-slate-100 rounded-full transition-colors">
+                <X size={20} className="text-slate-400" />
               </button>
             </div>
 
-            <div className="px-5">
-              <Cover book={selectedBook} className="h-64 w-44" />
+            <div className="px-6 pt-6 pb-4">
+              <Cover book={selectedBook} className="w-48 mx-auto shadow-md" />
             </div>
 
-            <div className="px-5 py-5">
-              <h3 className="leading-tight" style={{ ...serif, fontSize: 22 }}>
+            <div className="px-6 py-4 flex-1 flex flex-col">
+              <h3 className="leading-tight font-serif text-[22px] font-bold text-slate-900">
                 {selectedBook.title}
               </h3>
-              <p className="mt-1 text-sm" style={{ color: inkSoft }}>
+              <p className="mt-1.5 text-[15px] font-medium text-slate-500">
                 {selectedBook.author}
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
                 <Badge>{selectedBook.format}</Badge>
                 <Badge>{selectedBook.year}</Badge>
                 <Badge>{selectedBook.pages} páginas</Badge>
               </div>
 
-              <p className="mt-5 leading-relaxed" style={{ color: "#3A3E47", fontSize: 14.5 }}>
+              <p className="mt-6 leading-relaxed text-slate-600 text-[14.5px]">
                 {selectedBook.synopsis}
               </p>
 
-              <div className="mt-7 flex flex-col gap-2.5">
+              <div className="mt-auto pt-8 pb-6 flex flex-col gap-3">
                 {isBorrowed(selectedBook.id) ? (
                   <>
-                    <div
-                      className="flex items-center gap-2 rounded-md px-3.5 py-2.5 text-sm"
-                      style={{ backgroundColor: "#EAF2EF", color: leafDeep }}
-                    >
-                      <CheckCircle2 size={16} />
+                    <div className="flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm bg-emerald-50 text-emerald-800 border border-emerald-100 font-medium">
+                      <CheckCircle2 size={18} className="text-emerald-500" />
                       Ya está en tu biblioteca
                     </div>
                     <button
@@ -609,8 +540,7 @@ export default function Catalog() {
                         setReadingId(selectedBook.id);
                         closePanel();
                       }}
-                      className="rounded-full py-2.5 text-sm text-white cursor-pointer"
-                      style={{ backgroundColor: leaf }}
+                      className="rounded-full py-3 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors cursor-pointer shadow-sm"
                     >
                       Leer ahora
                     </button>
@@ -618,10 +548,7 @@ export default function Catalog() {
                 ) : (
                   <button
                     onClick={() => borrow(selectedBook)}
-                    className="rounded-full py-2.5 text-sm text-white transition-colors cursor-pointer"
-                    style={{ backgroundColor: gold }}
-                    onMouseDown={(e) => (e.currentTarget.style.backgroundColor = goldDeep)}
-                    onMouseUp={(e) => (e.currentTarget.style.backgroundColor = gold)}
+                    className="rounded-full py-3 text-sm font-semibold text-white bg-[#B5842A] hover:bg-[#8C6620] transition-colors cursor-pointer shadow-sm"
                   >
                     Pedir prestado
                   </button>
@@ -634,41 +561,40 @@ export default function Catalog() {
 
       {/* ---------- Lector ---------- */}
       {readingBook && (
-        <div className="fixed inset-0 z-50 overflow-y-auto" style={{ backgroundColor: paper }}>
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-50">
           <div className="mx-auto flex max-w-2xl items-center justify-between px-5 py-5">
             <button
               onClick={() => setReadingId(null)}
-              className="flex items-center gap-1.5 text-sm cursor-pointer"
-              style={{ color: inkSoft }}
+              className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors cursor-pointer"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={18} />
               Volver a mi biblioteca
             </button>
-            <button onClick={() => setReadingId(null)} aria-label="Cerrar lectura" className="cursor-pointer">
-              <X size={18} color={inkSoft} />
+            <button onClick={() => setReadingId(null)} aria-label="Cerrar lectura" className="cursor-pointer p-1.5 hover:bg-slate-200 rounded-full transition-colors">
+              <X size={20} className="text-slate-500" />
             </button>
           </div>
 
-          <div className="mx-auto max-w-2xl px-6 pb-24">
-            <p className="flex items-center gap-1.5 text-xs" style={{ color: inkSoft }}>
-              <Clock size={13} />
+          <div className="mx-auto max-w-2xl px-6 pb-24 pt-4">
+            <p className="flex items-center gap-1.5 text-[13px] font-medium text-slate-400 uppercase tracking-wide">
+              <Clock size={14} />
               {readingBook.pages} páginas · {readingBook.format}
             </p>
-            <h1 className="mt-2 leading-tight" style={{ ...serif, fontSize: 30 }}>
+            <h1 className="mt-3 leading-tight font-serif text-3xl font-bold text-slate-900">
               {readingBook.title}
             </h1>
-            <p className="mt-1" style={{ color: inkSoft, fontSize: 15 }}>
+            <p className="mt-2 text-lg text-slate-500 font-medium">
               {readingBook.author}
             </p>
 
-            <div className="mt-8 space-y-5" style={{ fontSize: 16, lineHeight: 1.8 }}>
+            <div className="mt-10 space-y-6 text-[17px] leading-relaxed text-slate-700">
               {readingBook.content.map((p, i) =>
                 i === 0 ? (
-                  <p key={i} className="italic" style={{ color: inkSoft, fontSize: 13 }}>
+                  <p key={i} className="italic text-slate-500 text-[15px] border-l-2 border-slate-300 pl-4">
                     {p}
                   </p>
                 ) : (
-                  <p key={i} style={{ ...serif, color: "#2B2E36" }}>
+                  <p key={i} className="font-serif">
                     {p}
                   </p>
                 )
@@ -680,11 +606,8 @@ export default function Catalog() {
 
       {/* ---------- Toast ---------- */}
       {toast && (
-        <div
-          className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2.5 text-sm text-white shadow-lg"
-          style={{ backgroundColor: ink }}
-        >
-          <CheckCircle2 size={16} color={gold} />
+        <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2.5 rounded-full px-5 py-3 text-sm font-medium text-white shadow-lg bg-slate-800">
+          <CheckCircle2 size={18} className="text-emerald-400" />
           {toast}
         </div>
       )}
