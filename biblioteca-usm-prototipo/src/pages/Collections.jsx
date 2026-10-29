@@ -45,17 +45,17 @@ export default function Collections() {
     <div className="app-shell min-h-screen bg-slate-50 text-slate-900">
       <SiteHeader />
 
-      {/* Contenido Principal - Visor de Colecciones */}
+      {/* Contenido Principal - Visor de Recursos */}
       <main className="max-w-5xl mx-auto px-4 py-10 sm:py-12">
         <div className="bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden flex flex-col min-h-[520px]">
           
           <div className="bg-[#24594c] text-white px-5 py-4">
-            <h1 className="font-serif font-semibold text-xl">Colecciones</h1>
+            <h1 className="font-serif font-semibold text-xl">Recursos</h1>
             <p className="text-sm text-white/80">Recursos físicos disponibles para la comunidad universitaria</p>
           </div>
 
           {/* Área del Carrusel */}
-          <div className="flex-1 flex flex-col relative px-12 py-8" role="region" aria-label="Colecciones disponibles" aria-roledescription="carrusel">
+          <div className="flex-1 flex flex-col relative px-12 py-8" role="region" aria-label="Recursos disponibles" aria-roledescription="carrusel">
             
             {/* Contenedor de la Imagen Centrada */}
             <div className="flex-1 flex items-center justify-center mb-8">

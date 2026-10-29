@@ -176,6 +176,32 @@ const CATEGORIES = [
 ];
 
 /* ---------------------------------------------------------
+   Persistencia de préstamos en la sesión (sessionStorage)
+   Evita que "Mis préstamos" se vacíe al cambiar de apartado.
+--------------------------------------------------------- */
+const LOANS_STORAGE_KEY = "biblioteca-usm:prestamos";
+
+function readStoredLoans() {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.sessionStorage.getItem(LOANS_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeStoredLoans(loans) {
+  if (typeof window === "undefined") return;
+  try {
+    window.sessionStorage.setItem(LOANS_STORAGE_KEY, JSON.stringify(loans));
+  } catch {
+    // sessionStorage no disponible (modo privado, etc.): se ignora.
+  }
+}
+
+/* ---------------------------------------------------------
    Piezas visuales
 --------------------------------------------------------- */
 function Cover({ book, className = "" }) {
@@ -224,7 +250,7 @@ export default function Catalog() {
   const [query, setQuery] = useState(() => searchParams.get("q") || "");
   const [selectedId, setSelectedId] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
-  const [loans, setLoans] = useState([]); 
+  const [loans, setLoans] = useState(readStoredLoans);
   const [readingId, setReadingId] = useState(null);
   const [toast, setToast] = useState(null);
   const toastTimer = useRef(null);
@@ -264,6 +290,9 @@ export default function Catalog() {
   }
 
   useEffect(() => () => clearTimeout(toastTimer.current), []);
+  useEffect(() => {
+    writeStoredLoans(loans);
+  }, [loans]);
   useEffect(() => {
     setQuery(searchParams.get("q") || "");
   }, [searchParams]);

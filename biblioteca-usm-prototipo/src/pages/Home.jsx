@@ -18,7 +18,7 @@ const SearchIcon = () => (
 const services = [
 	{ number: '01', title: 'Catálogo', text: 'Busca libros y recursos por título, autor o tema.', href: '/catalogo', label: 'Explorar catálogo', icon: BookOpen },
 	{ number: '02', title: 'Salas de estudio', text: 'Encuentra un espacio disponible en tu sede.', href: '/salas', label: 'Reservar una sala', icon: CalendarDays },
-	{ number: '03', title: 'Colecciones', text: 'Conoce los recursos físicos disponibles para préstamo.', href: '/colecciones', label: 'Ver colecciones', icon: Laptop },
+	{ number: '03', title: 'Recursos', text: 'Conoce los recursos físicos disponibles para préstamo.', href: '/recursos', label: 'Ver recursos', icon: Laptop },
 ];
 
 export default function Home() {

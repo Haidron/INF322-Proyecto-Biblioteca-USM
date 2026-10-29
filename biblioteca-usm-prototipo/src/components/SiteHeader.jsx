@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const navigation = [
   { to: '/catalogo', label: 'Catálogo', icon: BookOpen },
   { to: '/salas', label: 'Salas', icon: CalendarDays },
-  { to: '/colecciones', label: 'Colecciones', icon: Laptop },
+  { to: '/recursos', label: 'Recursos', icon: Laptop },
   { to: '/prestamos', label: 'Mis préstamos', icon: Library, account: true },
 ];
 

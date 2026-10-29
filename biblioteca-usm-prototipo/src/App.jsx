@@ -17,7 +17,8 @@ export default function App() {
         <Route path="/prestamos" element={<Catalog />} />
         <Route path="/salas" element={<RoomReservation />} />
         <Route path="/reservas" element={<Navigate to="/salas" replace />} />
-        <Route path="/colecciones" element={<Collections />} />
+        <Route path="/recursos" element={<Collections />} />
+        <Route path="/colecciones" element={<Navigate to="/recursos" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
