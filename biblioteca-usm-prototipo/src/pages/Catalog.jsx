@@ -1,16 +1,14 @@
 // src/pages/Catalog.jsx
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+import SiteHeader from "../components/SiteHeader";
 import {
-  Home,
   Search,
   X,
   CheckCircle2,
   BookOpen,
   ArrowLeft,
   Clock,
-  Calendar,
-  Laptop,
 } from "lucide-react";
 
 /* ---------------------------------------------------------
@@ -219,9 +217,11 @@ function Badge({ children }) {
    Componente Catalog (Módulo de Libros)
 --------------------------------------------------------- */
 export default function Catalog() {
-  const [view, setView] = useState("catalogo"); // catalogo | biblioteca
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const view = location.pathname === "/prestamos" ? "biblioteca" : "catalogo";
   const [category, setCategory] = useState("Todos");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(() => searchParams.get("q") || "");
   const [selectedId, setSelectedId] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
   const [loans, setLoans] = useState([]); 
@@ -264,84 +264,17 @@ export default function Catalog() {
   }
 
   useEffect(() => () => clearTimeout(toastTimer.current), []);
+  useEffect(() => {
+    setQuery(searchParams.get("q") || "");
+  }, [searchParams]);
 
   const isBorrowed = (id) => loans.includes(id);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="app-shell min-h-screen bg-slate-50 text-slate-900">
       
       {/* ---------- Nav ---------- */}
-      <header className="bg-[#1C2A3E] text-white shadow-md">
-        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B5842A]">
-              <BookOpen size={18} className="text-[#121B29]" />
-            </div>
-            <div className="leading-tight">
-              <p className="font-serif font-bold text-base">Biblioteca USM</p>
-              <p className="text-slate-400 text-[11px]">Catálogo Digital y Préstamos</p>
-            </div>
-          </div>
-
-          <div className="hidden flex-1 items-center gap-2 rounded-full px-3 py-1.5 bg-white/10 max-w-[320px] sm:flex">
-            <Search size={15} className="text-slate-300" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar por título o autor"
-              className="w-full bg-transparent text-sm text-white placeholder-slate-300 outline-none"
-            />
-          </div>
-
-          <nav className="flex items-center gap-2">
-            <button
-              onClick={() => setView("catalogo")}
-              className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm transition-colors cursor-pointer ${
-                view === "catalogo" 
-                  ? "font-semibold bg-white/15 text-amber-300" 
-                  : "text-slate-200 hover:bg-white/10"
-              }`}
-            >
-              <Home size={16} />
-              <span className="hidden sm:inline">Libros</span>
-            </button>
-            <button
-              onClick={() => setView("biblioteca")}
-              className={`relative flex items-center gap-2 rounded-full py-1.5 pl-2 pr-3.5 text-sm transition-colors cursor-pointer ${
-                view === "biblioteca" 
-                  ? "font-semibold bg-white/15 text-amber-300" 
-                  : "text-slate-200 hover:bg-white/10"
-              }`}
-            >
-              <span className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold bg-[#B5842A] text-[#121B29]">
-                USM
-              </span>
-              <span className="hidden sm:inline">Mis Préstamos</span>
-              {loans.length > 0 && (
-                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full text-white bg-emerald-600 text-[10px] font-bold shadow-sm">
-                  {loans.length}
-                </span>
-              )}
-            </button>
-
-            <Link
-              to="/salas"
-              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
-            >
-              <Calendar size={15} />
-              <span className="hidden lg:inline">Salas</span>
-            </Link>
-
-            <Link
-              to="/colecciones"
-              className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
-            >
-              <Laptop size={15} />
-              <span className="hidden lg:inline">Colecciones</span>
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* ---------- Hero ---------- */}
       {view === "catalogo" && (
@@ -375,9 +308,22 @@ export default function Catalog() {
       {/* ---------- Catálogo ---------- */}
       {view === "catalogo" && (
         <main className="mx-auto max-w-6xl px-5 py-8">
+          <form role="search" className="mb-8 flex h-12 max-w-xl items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 shadow-sm">
+            <Search size={18} className="shrink-0 text-slate-400" aria-hidden="true" />
+            <label htmlFor="book-search" className="sr-only">Buscar libros por título o autor</label>
+            <input
+              id="book-search"
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Buscar por título o autor"
+              className="h-full w-full border-0 bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
+            />
+          </form>
+
           <div className="mb-5 flex items-center justify-between">
             <h2 className="font-serif text-[21px] font-bold text-slate-800">Novedades</h2>
-            <span className="text-sm text-slate-500 font-medium">
+            <span className="text-sm text-slate-500 font-medium" aria-live="polite">
               {visibleBooks.length} resultado{visibleBooks.length !== 1 && "s"}
             </span>
           </div>
@@ -387,6 +333,7 @@ export default function Catalog() {
               <button
                 key={c}
                 onClick={() => setCategory(c)}
+                aria-pressed={category === c}
                 className={`shrink-0 rounded-full border px-4 py-1.5 text-sm transition-colors cursor-pointer font-medium ${
                   category === c
                     ? "bg-slate-800 text-white border-slate-800"
@@ -400,7 +347,7 @@ export default function Catalog() {
 
           {visibleBooks.length === 0 ? (
             <div className="rounded-xl bg-white border border-slate-200 py-16 text-center text-slate-500 shadow-sm">
-              No encontramos libros para "{query}". Prueba con otro título o autor.
+              No encontramos libros para &quot;{query}&quot;. Prueba con otro título o autor.
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -433,7 +380,7 @@ export default function Catalog() {
       {view === "biblioteca" && (
         <main className="mx-auto max-w-6xl px-5 py-10">
           <div className="mb-8 flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold bg-[#B5842A] text-[#121B29] shadow-sm">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold bg-[#24594c] text-white shadow-sm">
               USM
             </span>
             <div>
@@ -452,12 +399,12 @@ export default function Catalog() {
               <p className="max-w-xs text-sm">
                 Explora el catálogo y pide tu primer libro prestado para verlo aquí.
               </p>
-              <button
-                onClick={() => setView("catalogo")}
-                className="mt-2 rounded-full px-5 py-2 text-sm font-medium text-white bg-slate-800 hover:bg-slate-700 transition-colors cursor-pointer"
+              <Link
+                to="/catalogo"
+                className="mt-2 rounded-full px-5 py-2 text-sm font-medium text-white bg-slate-800 hover:bg-slate-700 transition-colors"
               >
                 Ir al catálogo
-              </button>
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -548,7 +495,7 @@ export default function Catalog() {
                 ) : (
                   <button
                     onClick={() => borrow(selectedBook)}
-                    className="rounded-full py-3 text-sm font-semibold text-white bg-[#B5842A] hover:bg-[#8C6620] transition-colors cursor-pointer shadow-sm"
+                    className="rounded-full py-3 text-sm font-semibold text-white bg-[#24594c] hover:bg-[#174438] transition-colors cursor-pointer shadow-sm"
                   >
                     Pedir prestado
                   </button>

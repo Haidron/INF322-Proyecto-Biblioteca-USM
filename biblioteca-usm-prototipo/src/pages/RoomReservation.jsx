@@ -1,13 +1,20 @@
 // src/pages/RoomReservation.jsx
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BookOpen, Calendar, Laptop } from 'lucide-react'; // <-- Nuevo icono importado
+import SiteHeader from '../components/SiteHeader';
 import { ROOMS_DATA, CAMPUSES } from '../data/rooms';
+
+const getTodayDate = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 export default function RoomReservation() {
   const [selectedCampus, setSelectedCampus] = useState('Casa Central');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedDate, setSelectedDate] = useState('2026-09-07');
+  const [selectedDate, setSelectedDate] = useState(getTodayDate);
   
   const [activeReservation, setActiveReservation] = useState(null);
   const [confirmedReservation, setConfirmedReservation] = useState(null);
@@ -30,44 +37,8 @@ export default function RoomReservation() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Barra superior con navegación entre ambos módulos */}
-      <header className="bg-[#1C2A3E] text-white shadow-md">
-        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#B5842A]">
-              <Calendar size={18} className="text-[#121B29]" />
-            </div>
-            <div className="leading-tight">
-              <p className="font-serif font-bold text-base">Biblioteca USM</p>
-              <p className="text-slate-400 text-[11px]">Reserva de Salas y Cubículos</p>
-            </div>
-          </div>
-
-          <nav className="flex items-center gap-2">
-            <Link
-              to="/libros"
-              className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
-            >
-              <BookOpen size={16} />
-              <span>Ver Libros</span>
-            </Link>
-            <div className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold bg-white/15 text-amber-300">
-              <Calendar size={16} />
-              <span>Salas</span>
-            </div>
-            
-            {/* NUEVO ENLACE DIRECTO A COLECCIONES */}
-            <Link
-              to="/colecciones"
-              className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm text-slate-200 hover:bg-white/10 transition-colors"
-            >
-              <Laptop size={16} />
-              <span>Colecciones</span>
-            </Link>
-          </nav>
-        </div>
-      </header>
+    <div className="app-shell min-h-screen bg-slate-50 text-slate-900">
+      <SiteHeader />
 
       {/* Contenido de Reserva */}
       <main className="max-w-5xl mx-auto px-4 py-8">
@@ -119,6 +90,7 @@ export default function RoomReservation() {
               <input
                 type="date"
                 value={selectedDate}
+                min={getTodayDate()}
                 onChange={(e) => setSelectedDate(e.target.value)}
                 className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-slate-800 focus:outline-none"
               />

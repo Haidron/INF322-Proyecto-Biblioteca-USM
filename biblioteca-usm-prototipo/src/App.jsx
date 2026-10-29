@@ -1,27 +1,24 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 import Catalog from './pages/Catalog';
 import RoomReservation from './pages/RoomReservation';
-import Collections from './pages/Collections'; // <-- Importamos el nuevo componente
+import Collections from './pages/Collections';
+import Home from './pages/Home';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Redirigir la raíz al catálogo de libros */}
-        <Route path="/" element={<Navigate to="/libros" replace />} />
-
-        {/* Pantalla 1: Módulo de libros */}
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/catalogo" element={<Catalog />} />
         <Route path="/libros" element={<Catalog />} />
-
-        {/* Pantalla 2: Módulo de reserva de salas */}
+        <Route path="/prestamos" element={<Catalog />} />
         <Route path="/salas" element={<RoomReservation />} />
-
-        {/* Pantalla 3: Módulo de colecciones físicas */}
+        <Route path="/reservas" element={<Navigate to="/salas" replace />} />
         <Route path="/colecciones" element={<Collections />} />
-
-        {/* Ruta 404 de respaldo */}
-        <Route path="*" element={<Navigate to="/libros" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
